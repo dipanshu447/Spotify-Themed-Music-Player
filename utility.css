@@ -18,3 +18,19 @@
     border-radius: 15px;
     border: 0;
 }
+
+.gap-1 {
+    gap: 8px;
+}
+
+.m-1 {
+    margin: 5px 5px 0px 5px;
+}
+
+.img-size-1{
+    width: 6%;
+}
+
+.pad-1 {
+    padding: 20px;
+}

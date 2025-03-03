@@ -8,20 +8,45 @@
     <link rel="stylesheet" href="utility.css">
 </head>
 <body>
-    <div class="container flex">
-        <div class="left flex flex-column border-radius">
-            <div class="home border-radius">
+    <div class="container flex gap-1 m-1">
+        <div class="left flex flex-column border-radius gap-1">
+            <div class="home border-radius flex flex-column pad-1">
                 <div class="logo"><img src="./assets/logo.svg" alt="Logo"></div>
                 <ul>
-                    <li><img src="./assets/home.svg" alt="Home">Home</li>
-                    <li><img src="./assets/search.svg" alt="Search">Search</li>
+                    <li><img class="img-size-1" src="./assets/home.svg" alt="Home">Home</li>
+                    <li><img class="img-size-1" src="./assets/search.svg" alt="Search">Search</li>
                 </ul>
             </div>
-            <div class="library border-radius">
-
+            <div class="library flex flex-column border-radius pad-1">
+                <div class="lb-title flex">
+                    <div class="flex gap-1 item-center">
+                        <img class="img-size-1" src="./assets/library.svg" alt="Library">   
+                        <h2>Your library</h2>
+                    </div>
+                    <img class="img-size-1" src="./assets/add.svg" alt="Add">   
+                </div>
+                <div class="lb-foot flex flex-column">
+                    <div class="foot-con">
+                        <div class="links flex">
+                            <div><a>Legal</a></div>
+                            <div><a>Safety Privacy Center</a></div>
+                            <div><a>Privacy Policy</a></div>
+                            <div><a>Cookies</a></div>
+                            <div><a>About Ads</a></div>
+                            <div><a>Accessibility</a></div>
+                        </div>
+                        <div>Cookies</div>
+                    </div>
+                    <button>
+                        <img src="./assets/universal.svg" alt="">
+                        <div>English</div>
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="right border-radius"></div>
+        <div class="right border-radius">
+            
+        </div>
     </div>
 </body>
 </html>
