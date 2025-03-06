@@ -145,7 +145,7 @@ body {
     position: relative;
 }
 
-.card img {
+.card img{
     width: 100%;
     border-radius: 5px;
     object-fit: contain;
@@ -155,7 +155,7 @@ body {
     font-size: 15px;
 }
 
-.card p {
+.card p, .desc p {
     color: rgb(179, 179, 179);
 }
 
@@ -192,7 +192,89 @@ body {
 }   
 
 .playbar {
-    justify-items: flex-end;
     height: 10%;
-    background-color: rgb(49, 49, 49);
+    /* background-color: rgb(49, 49, 49); */
+    background-color: rgb(14, 13, 13);
+}
+
+.playerbtn svg{
+    width: 17px;
+}
+
+.songbtns {
+    gap: 30px;
+}
+
+.playerbtn path {
+    fill: rgb(179, 179, 179);
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;   
+    height: 30px;   
+    padding: 8px;
+    background-color: white;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.circle img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.playerbtn {
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.26, 0.13, 0, 1);
+}
+
+.playerbtn:hover{
+    transform: scale(1.1);
+}
+
+.playerbtn:hover svg path{
+    fill: rgb(223, 223, 223);
+}
+
+.songLists{
+    height: 320px;
+    box-sizing: border-box;
+    gap: 6px;
+    overflow-y: scroll;
+}
+
+.song-card{
+    display: flex;
+    width: 20vw;
+    gap: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.song-card:hover{
+    background-color: #2e2e2e;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    box-sizing: border-box;
+    font-size: 0.75rem;
+}
+
+.desc h4 {
+    margin: 0;
+    font-weight: 500;
+}
+
+.song-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
 }
