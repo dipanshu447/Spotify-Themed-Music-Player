@@ -1,3 +1,7 @@
+let currentSong = new Audio();
+let previous = document.getElementById("previous");
+let play = document.getElementById("play");
+let next = document.getElementById("next");
 async function getSongs(){
     let fetchsong = await fetch('http://127.0.0.1:3000/songs/');
     let response = await fetchsong.text();
@@ -40,15 +44,37 @@ let createsongCard = (title) => {
     return songCard;
 }
 
-(async () =>{
-    let songs = await getSongs();
-    // console.log(songs);
-    // const audio = new Audio(songs[0]);
-    // audio.play();
-    let libSonglist = document.getElementsByClassName('songLists');
+// MAKE SURE YOUR SONGS FILE DONT HAVE ANY EXTRA SPACE SONG NAMES
+let playmusic = (track) => {
+    currentSong.src = '/songs/' + track;
+    currentSong.play();
+    play.getElementsByTagName("img")[0].src = 'https://img.icons8.com/?size=100&id=61012&format=png&color=000000';
+}
 
+(async () =>{
+    // adding songs in the library song list
+    let songs = await getSongs();
+    let libSonglist = document.getElementsByClassName('songLists');
     for (const song of songs) {
-        let songName = song.split('/songs/')[1].replaceAll("%20", " ")
+        let songName = song.split('/songs/')[1].replaceAll("%20", " ");
         libSonglist[0].appendChild(createsongCard(songName));
     }
+
+    // playing the music if user clicks on the library songs 
+    let songLists = Array.from(document.querySelector('.songLists').getElementsByClassName("song-card"));
+    songLists.forEach(e => {
+        e.addEventListener("click", element=> {
+            // console.log(e.getElementsByTagName("h4")[0].innerText);
+            playmusic(e.getElementsByTagName("h4")[0].innerText);
+        })
+    })
+    play.addEventListener("click", ()=>{
+        if(currentSong.paused){
+            currentSong.play();
+            play.getElementsByTagName("img")[0].src = 'https://img.icons8.com/?size=100&id=61012&format=png&color=000000';
+        }else {
+            currentSong.pause();
+            play.getElementsByTagName("img")[0].src = 'https://img.icons8.com/?size=100&id=59862&format=png&color=000000';
+        }
+    })
 })()
