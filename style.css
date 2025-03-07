@@ -360,7 +360,7 @@ body {
 }
 
 .volume {
-    width: 12%;
+    width: 13%;
     /* height: 20%; */
 }
 
@@ -370,4 +370,10 @@ body {
     align-items: center;
     gap: 10px;
     font-size: 14px;
+}
+
+.songInfo {
+    font-size: 80%;
+    width: 18%;
+    text-overflow: clip;
 }

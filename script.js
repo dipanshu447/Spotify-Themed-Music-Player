@@ -2,7 +2,10 @@ let currentSong = new Audio();
 let previous = document.getElementById("previous");
 let play = document.getElementById("play");
 let next = document.getElementById("next");
-async function getSongs(){
+let timer = document.querySelector('.timer');
+let dura = document.querySelector('.duration');
+let info = document.querySelector('.songInfo');
+async function getSongs() {
     let fetchsong = await fetch('http://127.0.0.1:3000/songs/');
     let response = await fetchsong.text();
     let div = document.createElement('div');
@@ -11,10 +14,10 @@ async function getSongs(){
     let songs = [];
     for (let i = 0; i < a.length; i++) {
         const element = a[i];
-        if(element.href.endsWith('.mp3')){
+        if (element.href.endsWith('.mp3')) {
             songs.push(element.href);
         }
-    }   
+    }
     return songs;
 }
 
@@ -45,13 +48,20 @@ let createsongCard = (title) => {
 }
 
 // MAKE SURE YOUR SONGS FILE DONT HAVE ANY EXTRA SPACE SONG NAMES
-let playmusic = (track) => {
+let playmusic = (track, pause = false) => {
     currentSong.src = '/songs/' + track;
-    currentSong.play();
     play.getElementsByTagName("img")[0].src = 'https://img.icons8.com/?size=100&id=61012&format=png&color=000000';
+    currentSong.play();
+    info.innerText = (track.split(".mp3")[0]);
 }
 
-(async () =>{
+let secondsToMin = (time) => {
+    let min = Math.floor(time / 60);
+    let sec = Math.floor(time % 60);
+    return `${min} : ${sec < 10 ? "0" + sec : sec}`;
+}
+
+(async () => {
     // adding songs in the library song list
     let songs = await getSongs();
     let libSonglist = document.getElementsByClassName('songLists');
@@ -63,18 +73,25 @@ let playmusic = (track) => {
     // playing the music if user clicks on the library songs 
     let songLists = Array.from(document.querySelector('.songLists').getElementsByClassName("song-card"));
     songLists.forEach(e => {
-        e.addEventListener("click", element=> {
-            // console.log(e.getElementsByTagName("h4")[0].innerText);
+        e.addEventListener("click", element => {
             playmusic(e.getElementsByTagName("h4")[0].innerText);
         })
     })
-    play.addEventListener("click", ()=>{
-        if(currentSong.paused){
+
+    // play pause logic buttons
+    play.addEventListener("click", () => {
+        if (currentSong.paused) {
             currentSong.play();
             play.getElementsByTagName("img")[0].src = 'https://img.icons8.com/?size=100&id=61012&format=png&color=000000';
-        }else {
+        } else {
             currentSong.pause();
             play.getElementsByTagName("img")[0].src = 'https://img.icons8.com/?size=100&id=59862&format=png&color=000000';
         }
+    })
+
+    // time updatation
+    currentSong.addEventListener("timeupdate", () => {
+        timer.innerText = secondsToMin(currentSong.currentTime);
+        dura.innerText = secondsToMin(currentSong.duration);
     })
 })()
