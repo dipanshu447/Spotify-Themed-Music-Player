@@ -61,6 +61,10 @@ body {
     gap: 30px;
 }
 
+.btn:hover{
+    background-color: rgb(37, 37, 37);
+}
+
 .links {
     flex-wrap: wrap;
     gap: 10px 10px;
@@ -126,6 +130,10 @@ body {
     border-radius: 50px;
     background-color: rgb(22, 22, 22);
     cursor: pointer;
+}
+
+.nav svg:hover {
+    background-color: rgb(44, 44, 44);
 }
 
 .spotify-playlists {
