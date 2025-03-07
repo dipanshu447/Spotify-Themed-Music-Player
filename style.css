@@ -204,6 +204,7 @@ body {
     height: 10%;
     /* background-color: rgb(49, 49, 49); */
     background-color: rgb(14, 13, 13);
+    gap: 11px;
 }
 
 .playerbtn svg {
@@ -305,4 +306,23 @@ body {
 
 .song-card:hover img {
     opacity: 50%;
+}
+
+.seekbar {
+    width: 50%;
+    height: 6%;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+}
+
+.circle2 {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    position: absolute;
+    bottom: -4px;
+    left: -1px ;
+    transition: left 0.3s;
 }
