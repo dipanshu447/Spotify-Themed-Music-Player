@@ -74,6 +74,7 @@ body {
 .links a {
     font-size: 11px;
     color: rgb(179, 179, 179);
+    cursor: pointer;
 }
 
 .foot-con>div:nth-of-type(2) {
@@ -311,7 +312,7 @@ body {
 .seekbar {
     width: 500px;
     height: 4px;
-    background-color: white;
+    background-color: #4d4d4d;
     border-radius: 20px;
     position: relative;
 }
@@ -320,11 +321,15 @@ body {
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background-color: #ff0000;
+    background-color: #ffffff;
     position: absolute;
     bottom: -4px;
-    left: -1px ;
-    transition: left 0.3s;
+    left: 98%;
+    transition: left 0.5s;
+    opacity: 0;
+}
+.seekbar:hover .circle2 {
+    opacity: 1;
 }
 
 .aboveBar {
@@ -336,7 +341,7 @@ body {
 .volume-bar {
     width: 110px;
     height: 4px;
-    background-color: white;
+    background-color: #4d4d4d;
     border-radius: 10px;
     position: relative;
 }
@@ -345,11 +350,15 @@ body {
     width:11px;
     height:11px;
     border-radius: 50%;
-    background-color: #ff0000;
+    background-color: #ffffff;
     position: absolute;
     bottom: -4px;
-    left: -1px ;
+    left: 98% ;
     transition: left 0.3s;
+    opacity: 0;
+}
+.volume-bar:hover .circle3 {
+    opacity: 1;
 }
 
 .volume img {
@@ -376,4 +385,12 @@ body {
     font-size: 80%;
     width: 18%;
     text-overflow: clip;
+}
+
+.b2 {
+    width: 0%;
+    background-color: white;
+}
+.b1:hover .b2 {
+    background-color: #1fdf64;
 }

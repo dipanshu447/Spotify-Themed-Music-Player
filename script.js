@@ -93,5 +93,6 @@ let secondsToMin = (time) => {
     currentSong.addEventListener("timeupdate", () => {
         timer.innerText = secondsToMin(currentSong.currentTime);
         dura.innerText = secondsToMin(currentSong.duration);
+        document.querySelector('.prog').style.width = (currentSong.currentTime / currentSong.duration) * 100 + "%";
     })
 })()
