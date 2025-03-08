@@ -95,4 +95,16 @@ let secondsToMin = (time) => {
         dura.innerText = secondsToMin(currentSong.duration);
         document.querySelector('.prog').style.width = (currentSong.currentTime / currentSong.duration) * 100 + "%";
     })
+
+    // event listener on seek bar and volume bar
+    document.querySelector(".seekbar").addEventListener("click", e => {
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+        document.querySelector('.prog').style.width = percent + "%";
+        currentSong.currentTime = (currentSong.duration * percent) / 100;
+    })
+    document.querySelector(".volume-bar").addEventListener("click", e => {
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+        document.querySelector('.drag').style.width = percent + "%";
+        currentSong.volume = 0.0 + (percent/100) * (1.0 - 0.0);
+    })
 })()
