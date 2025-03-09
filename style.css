@@ -2,6 +2,8 @@
 
 :root {
     --theme-color: rgb(20, 20, 20);
+    --play-visible : 0;
+    --ten-px : 10px;
 }
 
 * {
@@ -166,8 +168,6 @@ body {
     transition: all .9s;
 }
 
-
-
 .card img {
     width: 100%;
     border-radius: 5px;
@@ -200,20 +200,17 @@ body {
     position: absolute;
     top: 160px;
     right: 15px;
-    opacity: 0;
     transition: all 1s cubic-bezier(0.48, 0.51, 0, 1.25);
-    transform: translateY(10px);
     z-index: 10;
     cursor: pointer;
-}
-
-.card:hover .play {
-    opacity: 1;
-    transform: translateY(0px);
+    opacity: var(--play-visible);
+    transform: translateY(var(--ten-px));
 }
 
 .card:hover {
-    background-color: #202020;
+    background-color: #2e2e2e;
+    --play-visible : 1;
+    --ten-px : 0px;
 }
 
 .card-container {
@@ -387,6 +384,7 @@ body {
     height: 18px;
     justify-content: center;
     filter: invert(1);
+    cursor: pointer;
 }
 
 .volume {
