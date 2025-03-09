@@ -163,6 +163,9 @@ let displayAlbums = async () => {
         let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
         document.querySelector('.drag').style.width = percent + "%";
         currentSong.volume = 0.0 + (percent / 100) * (1.0 - 0.0);
+        if(currentSong.volume > 0){
+            soundMute.src = "./assets/sound.png";
+        }
     })
 
     // hamBurger show up
