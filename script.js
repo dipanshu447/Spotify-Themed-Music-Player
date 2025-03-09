@@ -5,6 +5,7 @@ let next = document.getElementById("next");
 let timer = document.querySelector('.timer');
 let dura = document.querySelector('.duration');
 let info = document.querySelector('.songInfo');
+let infoImg = document.querySelector('.hid');
 async function getSongs() {
     let fetchsong = await fetch('http://127.0.0.1:3000/songs/');
     let response = await fetchsong.text();
@@ -52,7 +53,7 @@ let playmusic = (track, pause = false) => {
     currentSong.src = '/songs/' + track;
     play.getElementsByTagName("img")[0].src = 'https://img.icons8.com/?size=100&id=61012&format=png&color=000000';
     currentSong.play();
-    info.innerText = (track.split(".mp3")[0]);
+    info.innerHTML = `<img class="hid" src="https://img.icons8.com/?size=100&id=74354&format=png&color=ffffff" alt="musicIcon"> ${(track.split(".mp3")[0])}`;
 }
 
 let secondsToMin = (time) => {
@@ -106,5 +107,15 @@ let secondsToMin = (time) => {
         let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
         document.querySelector('.drag').style.width = percent + "%";
         currentSong.volume = 0.0 + (percent/100) * (1.0 - 0.0);
+    })
+
+    // hamBurger show up
+    document.querySelector('.hamBurger').addEventListener("click",() => {
+        document.querySelector('.left').style.left = 0 + "%";
+    })
+
+    // HamBurger close up
+    document.querySelector('.closeHamBurger').addEventListener("click", () => {
+        document.querySelector('.left').style.left = -100 + "%";
     })
 })()
