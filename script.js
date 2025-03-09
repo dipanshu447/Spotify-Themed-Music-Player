@@ -49,14 +49,18 @@ let createsongCard = (title) => {
 }
 
 // MAKE SURE YOUR SONGS FILE DONT HAVE ANY EXTRA SPACE SONG NAMES
-let playmusic = (track, pause = false) => {
+let playmusic = (track) => {
     currentSong.src = '/songs/' + track;
     play.getElementsByTagName("img")[0].src = 'https://img.icons8.com/?size=100&id=61012&format=png&color=000000';
     currentSong.play();
-    info.innerHTML = `<img class="hid" src="https://img.icons8.com/?size=100&id=74354&format=png&color=ffffff" alt="musicIcon"> ${(track.split(".mp3")[0])}`;
+    info.innerHTML = `<img class="hid" src="https://img.icons8.com/?size=100&id=74354&format=png&color=ffffff" alt="musicIcon"> ${(decodeURIComponent(track.split(".mp3")[0]))}`;
 }
 
 let secondsToMin = (time) => {
+    if(isNaN(time) || time < 0){
+        return '0 : 00'
+    }
+
     let min = Math.floor(time / 60);
     let sec = Math.floor(time % 60);
     return `${min} : ${sec < 10 ? "0" + sec : sec}`;
@@ -117,5 +121,23 @@ let secondsToMin = (time) => {
     // HamBurger close up
     document.querySelector('.closeHamBurger').addEventListener("click", () => {
         document.querySelector('.left').style.left = -100 + "%";
+    })
+
+    // song next
+    document.getElementById('next').addEventListener("click", () => {
+        let index = songs.indexOf('http://127.0.0.1:3000/songs/'+ currentSong.src.split('/').slice(-1)[0]); 
+
+        if((index+1) <= songs.length - 1){
+            playmusic(songs[index+1].split('/songs/')[1]);
+        }
+    })
+
+    // song previous
+    document.getElementById('previous').addEventListener("click", () => {
+        let index = songs.indexOf('http://127.0.0.1:3000/songs/'+ currentSong.src.split('/').slice(-1)[0]);
+
+        if((index-1) >= 0){
+            playmusic(songs[index-1].split('/songs/')[1]);
+        }
     })
 })()
