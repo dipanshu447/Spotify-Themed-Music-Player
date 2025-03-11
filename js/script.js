@@ -124,7 +124,6 @@ let displayAlbums = async () => {
         })
     })
 }
-// new ip - 192.168.31.174
 
 (async () => {
     // fetching albums from a folder
@@ -198,8 +197,6 @@ let displayAlbums = async () => {
 
     // mute volume 
     soundMute.addEventListener("click", () => {
-        // console.log(soundMute.src.split('/').slice(-2)[1] == "sound.png");
-
         if (soundMute.src.split('/').slice(-2)[1] == "sound.png") {
             soundMute.src = "./assets/mute.png";
             document.querySelector('.drag').style.width = 0 + "%";

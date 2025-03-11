@@ -393,7 +393,6 @@ body {
 
 .volume {
     width: 10%;
-    /* height: 20%; */
 }
 
 .bottom-bar {
@@ -430,13 +429,6 @@ body {
 .drag {
     width: 100%;
 }
-
-/* .f {
-    position: absolute; 
-    bottom: 120px;
-    right: 80px;
-    transform: rotate(  90deg);
-} */
 
 @media only screen and (max-width:1000px) {
     .left {
