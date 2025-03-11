@@ -29,11 +29,13 @@ This project has motivated me to dive deeper into Web APIs, and I plan to build 
 
 ### Desktop Preview
 
-<img src="./assets/readme/Desktop-Preview.gif" width="100%" height="100%" alt="desktop-preview">
+![Desktop Preview](./assets/readme/Desktop-Preview.gif)
 
 ### Mobile Preview
 
-![Mobile Preview](./assets/readme/Mobile-Preview.gif)
+<div style="text-align:center;">
+<img src="./assets/readme/Mobile-Preview.gif" width="50%" height="50%">
+</div>
 
 ## 📌 Setup Instructions
 
