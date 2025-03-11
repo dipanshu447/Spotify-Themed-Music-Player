@@ -29,7 +29,7 @@ This project has motivated me to dive deeper into Web APIs, and I plan to build 
 
 ### Desktop Preview
 
-![Desktop Preview](./assets/readme/Desktop-Preview.gif)
+<img src="./assets/readme/Desktop-Preview.gif" width="100%" height="100%" alt="desktop-preview">
 
 ### Mobile Preview
 
